@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "61a921f6028954d4f0319f72"
+  },
+  "contact_id": 1,
+  "firstName":"Michelle",
+  "lastName":"Ngozi",
+  "email":"mngozix@gmail.com",
+  "favoriteColor":"red",
+  "birthday":"24-08-1990"
+},{
+  "_id": {
+    "$oid": "61a921f6028954d4f0319f73"
+  },
+  "contact_id": 2,
+  "firstName":"Jason",
+  "lastName":"Nnam",
+  "email":"mngozix@gmail.com",
+  "favoriteColor":"Green",
+  "birthday":"24-01-1999"
+},{
+  "_id": {
+    "$oid": "61a921f6028954d4f0319f74"
+  },
+  "contact_id": 3,
+  "firstName":"Joseph",
+  "lastName":"Nnachi",
+  "email":"jnax@gmail.com",
+  "favoriteColor":"red",
+  "birthday":"24-06-1998"
+},{
+  "_id": {
+    "$oid": "61a921f6028954d4f0319f75"
+  },
+  "contact_id": 4,
+  "firstName":"Beriut",
+  "lastName":"Xiko",
+  "email":"bxx@gmail.com",
+  "favoriteColor":"yellow",
+  "birthday":"25-12-1997"
+},{
+  "_id": {
+    "$oid": "61a921f6028954d4f0319f76"
+  },
+  "contact_id": 5,
+  "firstName":"Lemur",
+  "lastName":"Parsi",
+  "email":"lepar@gmail.com",
+  "favoriteColor":"red",
+  "birthday":"24-09-2000"
+}]

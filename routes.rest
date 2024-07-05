@@ -1,0 +1,32 @@
+
+GET http://localhost:8080/contacts
+
+###
+# Get contact by ID
+GET http://localhost:8080/contacts/668532995066cbc9f60e5908
+
+### Create Contact
+POST http://localhost:8080/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+    
+}
+
+### PUT Contact
+
+PUT http://localhost:8080/contacts/66853643ef9d2ddaecab4bfd HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName":"Jensen",
+    "lastName":"Olz",
+    "email":"jo@gmail.com",
+    "favoriteColor":"Yellow",
+    "birthday":"24-10-1996"
+}
+
+### DELETE Contact
+
+DELETE http://localhost:3000/contacts/6685384bef9d2ddaecab4c00 HTTP/1.1
+
