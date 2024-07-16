@@ -58,9 +58,9 @@ if (process.env.HOST === 'localhost') {
   CallbackURL = process.env.CALLBACK_URL;
 } else {
   // Use environment variables for production
-  clientID = process.env.pro.GITHUB_CLIENT_ID;
-  clientSecret = process.env.pro.GITHUB_CLIENT_SECRET;
-  callbackURL = process.env.pro.CALLBACK_URL;
+  ClientID = process.env.cGITHUB_CLIENT_ID;
+  ClientSecret = process.env.cGITHUB_CLIENT_SECRET;
+  CallbackURL = process.env.cCALLBACK_URL;
 }
 
 passport.use(new GitHubStrategy({
