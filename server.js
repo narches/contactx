@@ -13,12 +13,6 @@ const GitHubStrategy = require('passport-github2').Strategy;
 
 const app = express();
 
-// Load environment variables based on NODE_ENV
-if (process.env.NODE_ENV === 'production') {
-  require('dotenv').config({ path: '.env.production' });
-} else {
-  require('dotenv').config({ path: '.env' });
-}
 
 // Parse JSON bodies
 app.use(bodyParser.json());
@@ -54,10 +48,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+let callbackURL = process.env.CALLBACK_URL || `http://localhost:${process.env.PORT || 8080}/github/callback`;
+
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: process.env.CALLBACK_URL
+  callbackURL: callbackURL
 },
 function (accessToken, refreshToken, profile, done) {
   // User.findOrCreate({ githubId: profile.id }, function (err, user) {
