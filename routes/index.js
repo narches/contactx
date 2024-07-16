@@ -1,7 +1,7 @@
 // Needed Resources 
 const express = require("express")
 const router = new express.Router()
-// const swaggerDocument = require('../swagger.json');
+const swaggerDocument = require('../swagger.json');
 const passport = require("passport");
 
 router.use('/', require('./swagger'));

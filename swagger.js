@@ -1,5 +1,5 @@
 const swaggerAutogen = require('swagger-autogen')();
-// const swaggerDocument = require('./swagger.json');
+const swaggerDocument = require('./swagger.json');
 
 const doc = {
     info: {
