@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Contact API",
-    "description": "A simple API for managing contacts",
+    "description": "A simple API for managing users",
     "version": "1.0.0"
   },
   "host": "localhost:8080",
@@ -12,15 +12,32 @@
     "https"
   ],
   "paths": {
-    "/": {
+    "/login": {
       "get": {
-        "tags": [
-          "Hello World"
-        ],
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
@@ -55,7 +72,7 @@
                 "firstName": {
                   "example": "any"
                 },
-                "lasName": {
+                "lastName": {
                   "example": "any"
                 },
                 "email": {
@@ -74,6 +91,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "412": {
             "description": "Precondition Failed"
@@ -131,7 +151,7 @@
                 "firstName": {
                   "example": "any"
                 },
-                "lasName": {
+                "lastName": {
                   "example": "any"
                 },
                 "email": {
@@ -150,6 +170,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "412": {
             "description": "Precondition Failed"
@@ -172,6 +195,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "412": {
             "description": "Precondition Failed"
