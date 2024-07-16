@@ -48,12 +48,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-let callbackURL = process.env.CALLBACK_URL || `http://localhost:${process.env.PORT || 8080}/github/callback`;
+let callbackURI = process.env.CALLBACK_URL || `http://localhost:${process.env.PORT || 8080}/github/callback`;
 
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: callbackURL
+  callbackURL: callbackURI
 },
 function (accessToken, refreshToken, profile, done) {
   // User.findOrCreate({ githubId: profile.id }, function (err, user) {
