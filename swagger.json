@@ -32,16 +32,6 @@
         }
       }
     },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/contacts/": {
       "get": {
         "description": "",
@@ -168,11 +158,17 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "304": {
+            "description": "Not Modified"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "412": {
             "description": "Precondition Failed"
@@ -199,8 +195,8 @@
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
