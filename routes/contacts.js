@@ -3,7 +3,6 @@ const router = new express.Router();
 const contactController = require("../controllers/contactController");
 const validation = require('../utilities/validate');
 const passport = require("passport")
-
 const {isAuthenticated} = require("../helpers/authenticate");
 
 

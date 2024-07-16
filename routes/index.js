@@ -4,6 +4,8 @@ const router = new express.Router()
 const swaggerDocument = require('../swagger.json');
 const passport = require("passport");
 
+
+
 router.use('/', require('./swagger'));
 
 
@@ -15,7 +17,7 @@ router.get('/logout', function(req, res, next) {
     req.logout(function(err) {
       if (err) { return next(err); }
       res.redirect('/');
-    });
+    })
 });
 
 
