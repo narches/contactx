@@ -5,7 +5,7 @@
     "description": "A simple API for managing users",
     "version": "1.0.0"
   },
-  "host": "https://contactx.onrender.com",
+  "host": "contactx.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
