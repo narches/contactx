@@ -19,13 +19,6 @@ PUT http://localhost:8080/contacts/61a921f6028954d4f0319f75 HTTP/1.1
 Content-Type: application/json
 
 {
-    "contact_id": 4,
-    "firstName":"Jensen",
-    "lastName":"Olz",
-    "email":"jo@gmail.com",
-    "favoriteColor":"Yellow",
-    "birthday":"24-10-1996"
-}
 
 ### DELETE Contact
 
