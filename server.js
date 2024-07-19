@@ -88,8 +88,8 @@ app.get('/github/callback', passport.authenticate('github', {
 
 
 
-const port = process.env.PORT || 8080;
-const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 10000;
+const host = process.env.HOST || 'https://contactx.render.com';
 
 mongodb.initDb((err) => {
   if (err) {
