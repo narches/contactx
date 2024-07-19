@@ -95,7 +95,7 @@ const deleteUser = async (req, res) => {
         const db = mongodb.getDatabase();
         const response = await db.collection('contacts').deleteOne({ _id: contactId });
         if (response.deletedCount > 0) {
-            res.status(204).send();
+            res.status(204).json({ error: 'Contact deleted' });
         } else {
             res.status(404).json({ error: 'Contact not found' });
         }

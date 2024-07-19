@@ -5,6 +5,7 @@ const env = require("dotenv").config();
 const usersController = require('./controllers/contactController');
 const swaggerAutogen = require('swagger-autogen')();
 const cors = require('cors');
+const router = require('express').Router();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const passport = require('passport');
@@ -17,19 +18,10 @@ const app = express();
 // Parse JSON bodies
 app.use(bodyParser.json());
 
-app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'], origin: '*' }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
-  );
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-  next();
-});
 
 app.use((err, req, res, next) => {
   if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
@@ -42,31 +34,30 @@ app.use((err, req, res, next) => {
 app.use(session({
   secret: process.env.SESSION_SECRET, // Ensure this is set in your .env file
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: true,
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  next();
+});
 
+app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'], origin: '*' }));
 
-let ClientID, ClientSecret, CallbackURL;
-if (process.env.HOST === 'localhost') {
-  // Use environment variables for localhost
-  ClientID = process.env.GITHUB_CLIENT_ID;
-  ClientSecret = process.env.GITHUB_CLIENT_SECRET;
-  CallbackURL = process.env.CALLBACK_URL;
-} else {
-  // Use environment variables for production
-  ClientID = process.env.cGITHUB_CLIENT_ID;
-  ClientSecret = process.env.cGITHUB_CLIENT_SECRET;
-  CallbackURL = process.env.cCALLBACK_URL;
-}
+app.use('/', require('./routes'));
 
 passport.use(new GitHubStrategy({
-  clientID: ClientID,
-  clientSecret: ClientSecret,
-  callbackURL: CallbackURL
+  clientID : process.env.GITHUB_CLIENT_ID,
+  clientSecret : process.env.GITHUB_CLIENT_SECRET,
+  callbackURL : process.env.CALLBACK_URL
 },
 function (accessToken, refreshToken, profile, done) {
   // User.findOrCreate({ githubId: profile.id }, function (err, user) {
@@ -95,7 +86,7 @@ app.get('/github/callback', passport.authenticate('github', {
     res.redirect('/');
   });
 
-app.use('/', require('./routes'));
+
 
 const port = process.env.PORT || 8080;
 const host = process.env.HOST || 'localhost';
