@@ -6,7 +6,7 @@ const doc = {
         title: 'Contact API',
         description: 'A simple API for managing users',
     },
-    host: 'https://contactx.onrender.com',
+    host: 'contactx.onrender.com',
     schemes: ['http', 'https']
 };
 

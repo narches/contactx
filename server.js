@@ -89,7 +89,7 @@ app.get('/github/callback', passport.authenticate('github', {
 
 
 const port = process.env.PORT || 10000;
-const host = process.env.HOST || 'https://contactx.onrender.com';
+const host = process.env.HOST || 'contactx.onrender.com';
 
 mongodb.initDb((err) => {
   if (err) {
