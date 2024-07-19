@@ -55,9 +55,9 @@ app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'], ori
 app.use('/', require('./routes'));
 
 passport.use(new GitHubStrategy({
-  clientID : process.env.GITHUB_CLIENT_ID,
-  clientSecret : process.env.GITHUB_CLIENT_SECRET,
-  callbackURL : process.env.CALLBACK_URL
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL
 },
 function (accessToken, refreshToken, profile, done) {
   // User.findOrCreate({ githubId: profile.id }, function (err, user) {
